@@ -43,6 +43,7 @@ function! MakeViewCheck()
     if &modifiable == 0 | return 0 | endif
     if len($TEMP) && expand('%:p:h') == $TEMP | return 0 | endif
     if len($TMP) && expand('%:p:h') == $TMP | return 0 | endif
+    if strlen(expand('%:p')) > 31 | return 0 | endif
 
     let file_name = expand('%:p')
     for ifiles in g:skipview_files
